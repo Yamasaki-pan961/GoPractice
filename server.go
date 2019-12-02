@@ -1,16 +1,19 @@
 package main
 
 import(
-	"fmt"
-	// "log"
+	"github.com/gin-gonic/gin"
 )
 
 func main(){
-	var hoge int
-	var a,b int = 0,1
-	var c = true
-	fuga := 0
+	r :=gin.Default()
 
-	fmt.Printf("%d %v %v %v %v",hoge,a,b,c,fuga)
+	r.GET("/",func(c *gin.Context){
+		c.JSON(200, gin.H{
+			"message":"Hello,world!",
+		})
+	})
+
+	r.Run(":8080")
 }
+
 
